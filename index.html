@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Algorithm">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+      $(document).on('click', 'a[href^="#"]', function (event) {
+          event.preventDefault();
+          $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top
+          }, 1000);
+      });
+  </script>
+  <title>Basic Cryptography</title>
+</head>
+<body>
+  
+  <header id="home">
+    <h1>Basic Cryptography</h1>
+  </header>
+
+  <!--meniu -->
+  <nav>
+    <ul>
+    <li><a href="#home">Acasa</a></li>
+    <li><a href="#history">Istoric</a></li>
+    <li><a href="#caesar_article">Caesar Cipher</a></li>
+    <li><a href="#vigenere_cipher">Vigenère Cipher</a></li>
+    <li><a href="#playfair_article">Playfair Cipher</a></li>
+    <li><a href="#hill_articlen">Hill Cipher</a></li>
+    <li><a href="#xor_chiper">Xor Cipher</a></li>
+    <li><a href="#more">Mai multe</a>
+      <ul>
+        <li><a href="#password">Top parole</a></li>
+        <li><a href="#hash">Functii Hash</a></li>
+        <li><a href="#DES-Encryption">DES-Encryption</a></li>
+      </ul>
+    </li>
+  </ul>
+  </nav>
+
+  <a href="#home" id="fixedbutton">Top</a>
+  <section>
+
+      <article id="history">
+        <aside>
+          <!-- pentru poze -->
+          <img src="assets\\history.png">
+        </aside>
+        <h2>Istoric</h2>
+        <p>Inainte de epoca moderna, criptografia se ocupa doar cu asigurarea confidentialitatii mesajelor (criptare) — conversia de mesaje dintr-o forma clara într-una neclara, si inversul acestui proces, pentru a face mesajul imposibil de înteles pentru cei care intercepteaza mesajul si nu au cunostinte secrete aditionale (anume cheia necesara pentru decriptarea mesajului). In ultimele decenii, domeniul s-a extins dincolo de problemele de confidentialitate si include, printre altele, si tehnici de verificare a integritătii mesajului, autentificare a trimitatorului si receptorului, semnatură electronica, calcule securizate.</p>
+
+      </article>
+
+  </section>
+
+  <hr>
+  <section>
+      <article id="caesar_article">
+          <aside>
+            <!-- pentru poze -->
+            <figure>
+              <img src="assets\\caesar_chiper.png">
+              <figcaption>Fig.1 - Caesar permutation.</figcaption>
+            </figure>
+          </aside>
+          <h2>Caesar Chiper</h2>
+          <p>Caesar chiper, cunoscut si ca o criptare shiftata, este una dintre cele mai simple forme de criptare. Algoritmul face
+          parte din clasa algoritmilor de substitutie unde fiecare litera din textul original(plaintext) este inlocuita cu o litera
+          corespunzatoare formei de substitutie.</p>
+          <p>Formula pentru encriptare este urmatoarea :</p>
+          <img src="assets\\caesar_ec.jpg" style="padding-left:3%">
+          <br />
+          <p>iar pentru decriptare : </p>
+          <img src="assets\\caesar_ec2.jpg" style="padding-left:3%">
+          <p>Unde x este caracterul de input iar n find numarul de caractere shiftate la dreapta.</p>
+          <br />
+          <div class="vulnerability_icon">
+            <h4>Vulnerabilitate</h4>
+            <img src="assets\\vulnerabilitate.jpg" width="100" height="100">
+          </div>
+          <div class="vulnerability_text">
+            <br/>
+            <ul>
+              <li><p>Deoarece n-ul poate fi in urma aplicari modulo 26 un numar intre [0,25], algoritmul
+                      este folositor doar in domeniul didactic.</p></li>
+              <li><p><span style="color:darkolivegreen;font-weight:bold">Brute-force</span>: imediat!</p></li>
+            </ol>
+          </div>
+      </article>
+
+  </section>
+  <hr>
+  <section>
+
+      <article id="vigenere_cipher">
+          <aside>
+            <!-- pentru poze -->
+          </aside>
+          <h2>Vigenère Cipher</h2>
+          <p>O cripare monoalfabetica primeste ca input doua stringuri, unu find plaintextul care trebuie encriptat
+          al doilea find chaia de encripate. Daca cheia de encripare este mai mica decat plaintextul se expandeaza
+          concatenand-o pana ajunge la dimensiunea plaintextului ori daca este mai mare trunchind-o. Dupa aceasta
+          se efectueaza pentru fiecare litera in parte din plaintext si cheie dupa indici <a href="#caesar_article" style="text-decoration:none" >Caesar Chiper</a>.</p>
+          <br />
+          <div class="vulnerability_icon">
+            <h4>Vulnerabilitate</h4>
+            <img src="assets\\vulnerabilitate.jpg" width="100" height="100">
+          </div>
+          <div class="vulnerability_text">
+            <br/>
+            <ul>
+              <li><p>Este mai bun din punctul de vedere al securitatii decat  <a href="#caesar_article" style="text-decoration:none" >Caesar Chiper</a> insa
+                tot slab datorita faptului ca algoritmul se bazeaza pe o simpla substitutie. Cu resursele informationale din ziua de azi un astfel de algoritm
+                devine inutil datorita analizei frecventei literelor. (Deoarece algoritmul se bazeaza pe o simpla substitutie, asta inseamna ca frecventa de aparitie
+                a literei 'a' de exemplu este aceasi cu litera 'k' sa presupunem in alfabet).</p></li>
+              <li><p><span style="color:darkolivegreen;font-weight:bold">Brute-force</span>: 1-2 zile</p></li>
+            </ol>
+          </div>
+      </article>
+
+  </section>
+  <hr>
+  <section>
+      <article id="playfair_article">
+          <aside>
+            <!-- pentru poze -->
+          </aside>
+          <h2>Playfair Chiper</h2>
+          <p> Playfair Chiper face parte din clasa algoritmilor simetrici care a fost si prima tehnica
+          de cripatare care foloseste o diagrama de substitutie.<br/></p>
+          <p>Algoritmul consta in construirea unei matrici 5x5 in care se primeste ca input plaintextul si un string
+          pentru cheie de encriptare aceasta folosindu-se la construirea matricei. Se extrage pe rand fiecare litera din
+          cheie unica si se introduce in matrice pe pozitiile 1, 2, 3 ... pana la terminarea tuturor literelor unice din
+          cheie apoi completandu-se restul matricei cu restul literelor din alfabet care nu faceau parte din string-ul
+          cheii. Dupa construirea matricei, se ia fiecare litera din plaintext si se cauta in matrice apoi se shifteaza o pozitie
+          la stanga/dreapta (dupa implementare), daca dupa shiftare iese din matrice se ia capatul opus.</p>
+          <iframe width="800" height="300" src="http://rumkin.com/tools/cipher/playfair.php" style="float:right; margin:auto; border-radius: 25px;"></iframe>
+          <p>Exemplu:</p>
+          <br/>
+          <p>Plaintext: Hello World</p>
+          <br/>
+          <p>Cheie: Secret</p>
+          <br/>
+          <table style="border: 1px solid black; width: 10px; height: 10px; margin-left:3%;">
+            <tr><td>S</td><td>E</td><td>C</td><td>R</td><td>T</td></tr>
+            <tr><td>A</td><td>B</td><td>D</td><td>F</td><td>G</td></tr>
+            <tr><td>H</td><td>I/J</td><td>L</td><td>M</td><td>N</td></tr>
+            <tr><td>O</td><td>P</td><td>Q</td><td>R</td><td>U</td></tr>
+            <tr><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td></tr>
+          </table>
+          <br />
+          <p style="margin:auto; padding:auto;">Plaintext encriptat: ICMP XPUMF</p>
+          <div class="vulnerability_icon">
+            <h4>Vulnerabilitate</h4>
+            <img src="assets\\vulnerabilitate.jpg" width="100" height="100">
+          </div>
+          <div class="vulnerability_text">
+            <br/>
+            <ul>
+              <li><p> Desi se scapa de dependenta analizei alfabetice tot numarul de matrici este mic fiind doar de dimensiune 5x5. </p></li>
+              <li><p><span style="color:darkolivegreen;font-weight:bold">Brute-force</span>: Mai putin de 1 zile</p></li>
+            </ol>
+          </div>
+      </article>
+
+  </section>
+  <hr>
+  <section>
+      <article id="hill_articlen">
+          <aside>
+            <!-- pentru poze -->
+          </aside>
+          <h2>Hill Chiper</h2>
+          <p>Hill Chiper face parte din clasa algoritmilor substituiti, avand baza in algebra liniara.
+          Algoritmul a fost primul care putea folosi in practica trei simboluri deodata in timpul procesului
+          de encriptare si decriptare.</p>
+          <p>Input-ul pentru acest algoritm consta in plaintext splitat in elemente de cate trei litere, precum
+          si o matrice random inversabila de 3x3 (mod 26) aceasta putand fi construita din valoarea literelor
+          cheiei insa avandu-se grija ca matricea rezultata sa fie inversabila.</p>
+          <p>Algoritmul va efectua operatia de inmultire dintre matricea 3x3 si fiecare vector de 3 litere apoi
+          rezultatului aplicandu-se modulo 26. Pentru decriptarea procesul e identic doar ca in loc de matricea
+          folosita la encriptare se va folosi inversa acesteaia.</p>
+          <p>Exemplu:</p>
+          <br/>
+          <p>Plaintext: ACT</p>
+          <br/>
+          <img src="assets\\hill_ex.jpg"style="float:float; margin:auto; padding-left:3%;">
+          <p>Cheie: GYBNQKURP</p>
+          <p>Plaintext encriptat: FIN</p>
+          <div class="vulnerability_icon">
+            <h4>Vulnerabilitate</h4>
+            <img src="assets\\vulnerabilitate.jpg" width="100" height="100">
+          </div>
+          <div class="vulnerability_text">
+            <br/>
+            <ul>
+              <li><p> Acasi problema ca la <a href="#playfair_article" style="text-decoration:none">Playfair Chiper</a>, numarul relativ mic de matrici, si in plus
+              nevoia ca matricea sa fie inversabila. </p></li>
+              <li><p><span style="color:darkolivegreen;font-weight:bold">Brute-force</span>: Mai putin de 1 zile</p></li>
+            </ol>
+          </div>
+      </article>
+
+  </section>
+  <hr>
+  <section>
+      <article id="xor_chiper">
+          <aside>
+            <!-- pentru poze -->
+          </aside>
+          <h2>Xor Cipher</h2>
+      <p>Operatia pe biti 'xor' este intens folosita in domeniul criptografic alaturi de permutari si substitutii. Aceasta criptare este una relativ simpla.
+      Se cere ca input un plaintext si un string pe post de cheie. Cheia se expandeaza pana la dimensiunea plaintextului.
+      Dupa expandarea cheii se efectueaza xor simplu caracter cu caracter.</p>
+        <br/>
+      <p>Exemplu cod python:</p>
+      <code>
+
+        <span>plaintext</span>
+        <span class="operator"> = </span>
+        <span class="key_word">input</span>
+        <span>("Plaintext: ")</span>
+        <br>
+        <span >cheie</span>
+        <span class="operator"> = </span>
+        <span class="key_word">input</span>
+        <span>("Cheie: ")</span>
+        <br>
+        <span>plaintext_criptat</span>
+        <span class="operator"> = </span>
+        <span>[0 </span>
+        <span class="key_word">for</span>
+        <span> x </span>
+        <span class="key_word">in range</span>
+        <span>(</span>
+        <span class="key_word">len</span>
+        <span>(plaintext) ) ]</span>
+        <br>
+        <span>plaintext_decriptat</span>
+        <span class="operator"> = </span>
+        <span>[0 </span>
+        <span class="key_word">for</span>
+        <span> x </span>
+        <span class="key_word">in range</span>
+        <span>(</span>
+        <span class="key_word">len</span>
+        <span>(plaintext) ) ]</span>
+        <br>
+
+        <span class="key_word">while len</span>
+        <span>(plaintext) </span>
+        <span class="operator"> >= </span>
+        <span class="key_word">len</span>
+        <span>(cheie) </span>
+        <span class="operator"> * </span>
+        <span>2</span>
+        <span class="operator"> :</span>
+        <br>
+        <span>&nbsp;</span>
+        <span>cheie</span>
+        <span class="operator"> = </span>
+        <span>cheie</span>
+        <span class="operator"> + </span>
+        <span>cheie</span>
+        <br>
+
+        <span>i</span>
+        <span class="operator"> = </span>
+        <span>0</span>
+        <br>
+        <span class="key_word">while len</span>
+        <span>(plaintext) </span>
+        <span class="operator"> >= </span>
+        <span class="key_word">len</span>
+        <span>(cheie) </span>
+        <span class="operator"> :</span>
+        <br>
+        <span>&nbsp;</span>
+        <span>cheie</span>
+        <span class="operator"> = </span>
+        <span>cheie</span>
+        <span class="operator"> + </span>
+        <span>cheie</span>
+        <br>
+        <span>&nbsp;</span>
+        <span>i</span>
+        <span class="operator"> = </span>
+        <span>i</span>
+        <span class="operator"> + </span>
+        <span>1</span>
+        <br>
+
+        <span class="key_word">for </span>
+        <span>index </span>
+        <span class="key_word">in range</span>
+        <span>( </span>
+        <span class="key_word">len</span>
+        <span>(plaintext)) </span>
+        <span class="operator"> :</span>
+        <br>
+        <span>&nbsp;</span>
+        <span>  plaintext_criptat[index]</span>
+        <span class="operator"> = </span>
+        <span class="key_word">str</span>
+        <span>( </span>
+        <span class="key_word">ord</span>
+        <span>(plaintext[index])</span>
+        <span class="operator"> ^ </span>
+        <span class="key_word">ord</span>
+        <span>(cheie[index]))</span>
+        <br>
+
+        <span class="key_word">for </span>
+        <span>index </span>
+        <span class="key_word">in range</span>
+        <span>( </span>
+        <span class="key_word">len</span>
+        <span>(plaintext)) </span>
+        <span class="operator"> :</span>
+        <br>
+        <span>&nbsp;</span>
+        <span>  plaintext_decriptat[index]</span>
+        <span class="operator"> = </span>
+        <span class="key_word">chr</span>
+        <span>( </span>
+        <span class="key_word">int</span>
+        <span>(plaintext_criptat[index])</span>
+        <span class="operator"> ^ </span>
+        <span class="key_word">ord</span>
+        <span>(cheie[index]))</span>
+        <br>
+        <br>
+        <span class="key_word">print</span>
+        <span>(plaintext_criptat)</span>
+        <br>
+        <span class="key_word">print</span>
+        <span>(plaintext_decriptat)</span>
+
+        </code>
+
+      </article>
+
+  </section>
+  <hr>
+  <section>
+      <article id="password">
+          <aside>
+            <!-- pentru poze -->
+          </aside>
+          <h2>Top cele mai folosite parole</h2>
+          <p>Datorita faptului ca oameni folosesc foarte des parole usor de ghicit, firmele de securitate au fost impinse sa
+          dezvolte noi strategi de a lupta impotriva atacurilor informatice si mai ales impotriva brute-force-ului care cu ajutoru
+          unui dictionar este relativ simplu sa se sparga o baza de date. Una dintre ele este hashura parolelor cu un salt care
+          va genera un cod diferit si salvarea hashuri impreuna cu saltul ei astfel diversificandu-se bazele de date care contin parole.</p>
+          <br>
+          <p>Prezentam in cele ce urmeaza cele mai comune 10 parole folosite in viata normala a oamenilor: </p>
+          <br>
+
+          <table>
+            <tr>
+              <th>No</th>
+              <th>Password</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>123456</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>password</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>12345</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>12345678</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>qwerty</td>
+            </tr>
+          </table>
+
+      </article>
+
+  </section>
+  <hr>
+  <section>
+      <article id="hash">
+          <aside>
+            <!-- pentru poze -->
+          </aside>
+          <h2>Functiile de hash</h2>
+
+      </article>
+
+  </section>
+  <hr>
+  <section>
+      <article id="DES-Encryption">
+          <aside>
+            <!-- pentru poze -->
+          </aside>
+          <h2>DES Algorithm</h2>
+          <iframe width="640" height="360" src="https://www.youtube.com/embed/3BZRBfhpIb0" frameborder="0" gesture="media" allowfullscreen style="padding-left:3%"></iframe>
+      </article>
+
+  </section>
+
+  <hr>
+  <section>
+        <article id="coming-soon">
+            <aside>
+              <!-- pentru poze -->
+            </aside>
+            <h2>Coming soon with next course ...</h2>
+
+        </article>
+    </section>
+
+    <hr>
+  <footer>
+    <h6 style="padding-left: 3%;">  &#169; Copyright Nitu Madalin 2017. Toate drepturile rezervate.</h6>
+  </footer>
+
+</body>
+</html>
