@@ -10,6 +10,7 @@ body{
 header {
   text-align: center;
   margin-top: 10px;
+  font-family: 'Archistico';
 }
 
 /*menu*/
@@ -114,31 +115,11 @@ nav li:hover {
 
   100% {background-color:gray;}
 }
-section:hover{
-  animation-name: change-color;
-  animation-duration: 3s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
 
 article{
 
 }
-aside img{
-  height: 200px;
-  width: 400px;
-  float: right;
-  margin: 0 0 10px 10px;
-}
-aside figure{
-  display:  inline-block;
-  height: 200px;
-  width: 400px;
-  float: right;
-  margin: 0 0 10px 10px;
 
-}
 
 footer{
   opacity: .9;
@@ -147,6 +128,14 @@ footer{
 
 h2,p{
   padding-left: 3%;
+
+}
+p{
+  display: block;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
 }
 
 hr{
@@ -264,3 +253,82 @@ th {
   color:#fff;
   background:#009688;
 }
+
+
+/*image*/
+
+
+.hover-img div figure img {
+  display:  inline-block;
+  height: 200px;
+  width: 400px;
+  margin: auto;
+
+  -webkit-transform: scale(1.5);
+	transform: scale(1.5);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+
+}
+.hover-img figure:hover img {
+  -webkit-transform: scale(1);
+  	transform: scale(1);
+}
+.responsive-img {
+  margin: auto;
+}
+.responsive-img:last-child {
+	padding-bottom: 60px;
+}
+.responsive-img::after {
+	content: '';
+	clear: both;
+	display: block;
+}
+.responsive-img div {
+	position: relative;
+	float: right;
+	width: 300px;
+	height: 200px;
+  margin: auto;
+	padding: 0;
+}
+.responsive-img div:first-child {
+	margin-left: 12%;
+}
+.responsive-img div span {
+	position: absolute;
+	bottom: -20px;
+	left: 0;
+	z-index: -1;
+	display: block;
+	width: 300px;
+	margin: 0;
+	padding: 0;
+	color: #444;
+	font-size: 16px;
+	text-decoration: none;
+	text-align: center;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	opacity: 0;
+}
+aside figure {
+  display:  inline-flex;
+  height: 200px;
+  width: 400px;
+  margin: auto;
+	background: #fff;
+	overflow: hidden;
+}
+aside figure:hover+span {
+	bottom: -36px;
+	opacity: 1;
+}
+aside{
+  float:right;
+  display: inline-block ;
+  margin: auto;
+}
+
+/*image*/

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="Algorithm">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../assets/Archistico_Simple.ttf">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
       $(document).on('click', 'a[href^="#"]', function (event) {
@@ -48,13 +49,22 @@
   <a href="#home" id="fixedbutton">Top</a>
   <section>
 
+    <br>
+    <br>
       <article id="history">
         <aside>
           <!-- pentru poze -->
-          <img src="assets\\history.png">
+          <div class="hover-img responsive-img">
+            <div>
+              <figure>
+              <img src="assets\\history.png">
+              </figure>
+              <span>Fig.0 - Crima cibernetica.</span>
+            </div>
+          </div>
         </aside>
         <h2>Istoric</h2>
-        <p>Inainte de epoca moderna, criptografia se ocupa doar cu asigurarea confidentialitatii mesajelor (criptare) — conversia de mesaje dintr-o forma clara într-una neclara, si inversul acestui proces, pentru a face mesajul imposibil de înteles pentru cei care intercepteaza mesajul si nu au cunostinte secrete aditionale (anume cheia necesara pentru decriptarea mesajului). In ultimele decenii, domeniul s-a extins dincolo de problemele de confidentialitate si include, printre altele, si tehnici de verificare a integritătii mesajului, autentificare a trimitatorului si receptorului, semnatură electronica, calcule securizate.</p>
+        <p align="left">Inainte de epoca moderna, criptografia se ocupa doar cu asigurarea confidentialitatii mesajelor (criptare) — conversia de mesaje dintr-o forma clara într-una neclara, si inversul acestui proces, pentru a face mesajul imposibil de înteles pentru cei care intercepteaza mesajul si nu au cunostinte secrete aditionale (anume cheia necesara pentru decriptarea mesajului). In ultimele decenii, domeniul s-a extins dincolo de problemele de confidentialitate si include, printre altele, si tehnici de verificare a integritătii mesajului, autentificare a trimitatorului si receptorului, semnatură electronica, calcule securizate.</p>
 
       </article>
 
@@ -65,10 +75,15 @@
       <article id="caesar_article">
           <aside>
             <!-- pentru poze -->
-            <figure>
-              <img src="assets\\caesar_chiper.png">
-              <figcaption>Fig.1 - Caesar permutation.</figcaption>
-            </figure>
+            <div class="hover-img responsive-img">
+              <div>
+                <figure>
+                  <img src="assets\\caesar_chiper.png">
+                </figure>
+                <span>Fig.1 - Caesar permutation.</span>
+              </div>
+            </div>
+
           </aside>
           <h2>Caesar Chiper</h2>
           <p>Caesar chiper, cunoscut si ca o criptare shiftata, este una dintre cele mai simple forme de criptare. Algoritmul face
@@ -423,7 +438,7 @@
               <!-- pentru poze -->
             </aside>
             <h2>Hacking</h2>
-            <img src="http://i.dailymail.co.uk/i/pix/2017/05/13/12/404406B100000578-4500738-image-a-16_1494675444370.jpg" width="600" height="300" alt="World" usemap="#world">
+            <img src="http://i.dailymail.co.uk/i/pix/2017/05/13/12/404406B100000578-4500738-image-a-16_1494675444370.jpg" width="600" height="300" style="padding-left: 3%;" alt="World" usemap="#world">
             <map name="world">
               <area shape="rect" coords="0,50,150,250" alt="SUA" href="https://media2.s-nbcnews.com/j/msnbc/components/video/150731/tdy_williams_china_150731.nbcnews-ux-1080-600.jpg">
               <area shape="rect" coords="270,50,400,150" alt="EUROPE" href="https://www.bleepstatic.com/images/news/u/986406/Charts/Germany-map.png">
