@@ -247,10 +247,10 @@ th {
   border: 1px solid #009688;
   font-size: 13px;
   width: 75px;
-  height: 22px;
+  height: 30px;
   font-weight: normal;
   margin-right: 12px;
-  display: inline-block;
+/*  display: inline-block;*/
   text-decoration: none;
   font-family: 'Open Sans', sans-serif;
   min-width: 75px;
@@ -336,5 +336,14 @@ aside{
   display: inline-block ;
   margin: auto;
 }
-
 /*image*/
+#hash {
+  border: 1px solid black;
+  width: 100%;
+  height: 400px;
+  display: flex;
+}
+#hash div{
+  flex: 1;
+  text-align: center;
+}
